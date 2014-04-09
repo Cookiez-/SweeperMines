@@ -2,9 +2,6 @@
  * This class creates the very board of Minesweeper.
  */ 
 import java.util.*;
-import javax.swing.*;     // For swing classes (the "J" classes)
-import java.awt.*;        // For awt classes (e.g., Dimension)
-import java.awt.event.*;  // For events (which you will implement)
 
 public class Minesweeper{ 
   //-----------------------------------------------------------------

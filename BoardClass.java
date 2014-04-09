@@ -1,8 +1,6 @@
 import javax.swing.*;
-import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
 import java.io.*;
 import javax.imageio.*;
 import java.net.URL;
@@ -14,7 +12,7 @@ import java.applet.*;
  */ 
 
 
-public class BoardClass extends JFrame{
+public class BoardClass extends JApplet{
   
   //-----------------------------------------------------------------
   //---------------------Instance Variables--------------------------
@@ -34,9 +32,12 @@ public class BoardClass extends JFrame{
   //-----------------------------------------------------------------
   //------------------------Constructor------------------------------
   //-----------------------------------------------------------------
-  public BoardClass(){
+  public void init(){
     rows = mineSweeper.getRows();
     columns = mineSweeper.getColumns();
+//    Dimension dimension = new Dimension(getPreferredSize());
+//    System.out.println(dimension);
+//    this.resize(100,500);
     //creates time
     timeCount = new JLabel(Integer.toString(time));
     timeCounter = new javax.swing.Timer(1000, new TimeCountListener());
@@ -64,7 +65,6 @@ public class BoardClass extends JFrame{
       resetFace = new JButton();
       Image img = ImageIO.read(getClass().getResource("Happy_Face.png"));
       resetFace.setIcon(new ImageIcon(img));
-      Dimension d = new Dimension(getPreferredSize());
       int height = img.getHeight(null);
       int width = img.getWidth(null);
       resetFace.setPreferredSize(new Dimension(width, height));
@@ -86,7 +86,8 @@ public class BoardClass extends JFrame{
     add(header, BorderLayout.NORTH);
     add(gameBoard, BorderLayout.CENTER);
     
-    pack();
+
+    revalidate();
     setVisible(true);
   }
   
@@ -131,7 +132,7 @@ public class BoardClass extends JFrame{
     /**
      * Paint Componenent (paints everything)
      */ 
-    protected void paintComponent( Graphics g )
+    public void paint( Graphics g )
     { 
       super.paintComponent( g );
       setBackground(new Color(255,255,255));
@@ -339,11 +340,6 @@ public class BoardClass extends JFrame{
       timeCount.setText(Integer.toString(time));
       
     }
-  }
-  
-  public static void main(String[] args)
-  {
-    BoardClass bc = new BoardClass();
   }
 }
 
