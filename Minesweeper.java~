@@ -6,10 +6,11 @@ import javax.swing.*;     // For swing classes (the "J" classes)
 import java.awt.*;        // For awt classes (e.g., Dimension)
 import java.awt.event.*;  // For events (which you will implement)
 
-public class Minesweeper{ 
+public abstract class Minesweeper implements Runnable{ 
   //-----------------------------------------------------------------
   //---------------------Instance Variables--------------------------
   //-----------------------------------------------------------------
+  Thread theThread = new Thread(this);
   private int bombCount;         //Number of bombs on the board
   int[][] mineBoard;             //Our main mine board: Free(0), Mine(1)
   int[][] statusBoard;           //The state of our element in mineBoard: Empty(0), Flag(1), Clicked(2), Lose(3)

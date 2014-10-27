@@ -14,7 +14,7 @@ import java.applet.*;
  */ 
 
 
-public class BoardClass extends JApplet{
+public class BoardClass extends JFrame{
   
   //-----------------------------------------------------------------
   //---------------------Instance Variables--------------------------
@@ -34,12 +34,9 @@ public class BoardClass extends JApplet{
   //-----------------------------------------------------------------
   //------------------------Constructor------------------------------
   //-----------------------------------------------------------------
-  public void init(){
+  public BoardClass(){
     rows = mineSweeper.getRows();
     columns = mineSweeper.getColumns();
-//    Dimension dimension = new Dimension(getPreferredSize());
-//    System.out.println(dimension);
-//    this.resize(100,500);
     //creates time
     timeCount = new JLabel(Integer.toString(time));
     timeCounter = new javax.swing.Timer(1000, new TimeCountListener());
@@ -89,8 +86,7 @@ public class BoardClass extends JApplet{
     add(header, BorderLayout.NORTH);
     add(gameBoard, BorderLayout.CENTER);
     
-
-    revalidate();
+    pack();
     setVisible(true);
   }
   
@@ -135,7 +131,7 @@ public class BoardClass extends JApplet{
     /**
      * Paint Componenent (paints everything)
      */ 
-    public void paint( Graphics g )
+    protected void paintComponent( Graphics g )
     { 
       super.paintComponent( g );
       setBackground(new Color(255,255,255));
@@ -343,6 +339,11 @@ public class BoardClass extends JApplet{
       timeCount.setText(Integer.toString(time));
       
     }
+  }
+  
+  public static void main(String[] args)
+  {
+    BoardClass bc = new BoardClass();
   }
 }
 
