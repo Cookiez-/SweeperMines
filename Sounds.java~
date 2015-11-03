@@ -1,5 +1,0 @@
- import java.applet.Audioclip;
-
-private class Sounds implements AudioClip{
-    AudioClip clip = new AudioClip("bloop.wav");
-  } 
