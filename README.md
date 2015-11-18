@@ -5,7 +5,7 @@ SweeperMines
 
 ####Versions:
 
-v1.0 (Summer 2014)
+v1.0 (Summer 2014):
 
 * Ran in IDE as Applet (Dr. Java).
 
@@ -17,14 +17,14 @@ v2.0 (November 17, 2015):
 ```
 usage: java Minesweeper [number of rows] [number of columns]
 
-It can handle input errors.
+It can handle input errors. Minimum board size: 3x3
 ```
 
 #####Prerequisites:
 ```
 javac, java
 ```
-How to run:
+#####How to run:
 ```
 $: cd /path_to_root_game_folder/v2/
 $: javac *.java
